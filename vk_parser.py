@@ -39,7 +39,7 @@ sheet = gs.worksheet(os.environ['G_LIST'])
 # print(post)
 values = numpy.array(sheet.get_all_values())
 keys = values[:, 0]
-sheet.resize(len(keys))
+
 for p in post['items']:
     # print(p)
 
@@ -70,7 +70,6 @@ for p in post['items']:
                 # 'text': p['text'],
                 'len': len(p['text'])}]
     if (str(df_dict[0]['comment_id']) in keys) or (len(p['text']) < 400):
-        journal.write(username)
         continue
     df = pandas.DataFrame(df_dict)
     df_values = df.values.tolist()
